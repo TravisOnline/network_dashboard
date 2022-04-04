@@ -28,8 +28,6 @@ def get_time():
     return str(current_time)
 
 # This function gets passed raw hostname data from collect_hosts and formats the hostname to be written to SQL
-
-
 def treat_hostname(hostname):
     # remove [ from string and onwards
     sep = '['
