@@ -9,11 +9,10 @@
 
 	$output = array();
 
-	$sql2 = "SELECT date, time as 'timestamp',
-			 COUNT(*) as 'number_of_users'
-			 FROM device_monitor
-			 GROUP BY date, timestamp
-			 LIMIT 96";
+	$sql2 = "SELECT t.* 
+		 FROM (SELECT date, time as 'timestamp', COUNT(*) AS 'number_of_users' 
+		 FROM device_monitor GROUP BY date, timestamp ORDER BY date DESC, time DESC LIMIT 96) AS t
+		 ORDER BY t.date ASC, t.timestamp ASC";
 	$result2 = $conn->query($sql2);
 	if($result2->num_rows > 0){
 			foreach($result2 as $row){
