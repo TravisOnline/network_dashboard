@@ -33,4 +33,4 @@ KNOWN ISSUES:
 	- The dashboard is unavailable for remote hosts - i need to implement access to it without enabling XSS attacks
 	- Pythonscript hugely susceptible for SQL injection attacks
 	- No JSON auth for APIs
-	- Inefficient and dangers DB login measures in the php files
+	- Inefficient and dangerous DB login measures in the php files
