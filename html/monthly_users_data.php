@@ -1,11 +1,5 @@
 <?php
-	header('Access-Control-Allow-Origin: *');
-	header("Access-Control-Allow-Methods: PUT, GET, POST");
-	header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
-	$servername = "localhost";
-	$username = "root";
-	$password = "_D_00_m_ii";
-	$dbname = "system_monitor";
+	//connection details here
 
 	$conn = mysqli_connect($servername, $username, $password, $dbname);
 
