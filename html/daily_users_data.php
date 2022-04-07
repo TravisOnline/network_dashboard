@@ -1,8 +1,5 @@
 <?php
-	$servername = "localhost";
-	$username = "root";
-	$password = "_D_00_m_ii";
-	$dbname = "system_monitor";
+	//connection details here
 
 	$conn = mysqli_connect($servername, $username, $password, $dbname);
 
