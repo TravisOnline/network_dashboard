@@ -12,7 +12,9 @@ I used python 3.8 when programming the network scanner, and as such 'sudo python
 The design of this dashboard can be broken down into 5 parts:
 
 1. networkscan.py
-	* This python program will send out a broadcast to every device on the specified network every x minutes via the scheduler method ```schedule.every(15).minutes.at(":00").do(collect_hosts)```
+	* This python program will send out a broadcast to every device on the specified network every x minutes via the scheduler method ```python
+	schedule.every(15).minutes.at(":00").do(collect_hosts)
+	```
 	* Upon doing so, with each reply it will acquire the hostname and mac address from each reply.
 	* After each field has been acquired, python will treat the data, and then write the host data to a table in mysql.
 	* This program will store DB login information seperately from the python script in attempt to be somewhat more secure ```conn = pymysql.connect(read_default_file="/etc/my.cnf")```. It's assumed this is relatively secure as my server is running a firewall and has been hardened. To even connect to it, all RDP protocols have been encapsulated in SSH.
