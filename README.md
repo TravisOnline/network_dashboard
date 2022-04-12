@@ -12,10 +12,10 @@ I used python 3.8 when programming the network scanner, and as such 'sudo python
 The design of this dashboard can be broken down into 5 parts:
 
 1. networkscan.py
-	This python program will send out a broadcast to every device on the specified network every x minutes via the scheduler method.
-	Upon doing so, with each reply it will acquire the hostname and mac address from each reply.
-	After teach field has been acquired, python will write the host data to a table in mysql.
-	This program will store DB login information seperately from the python script in attempt to be somewhat more secure.
+	..* This python program will send out a broadcast to every device on the specified network every x minutes via the scheduler method.
+	..* Upon doing so, with each reply it will acquire the hostname and mac address from each reply.
+	..* After teach field has been acquired, python will write the host data to a table in mysql.
+	..* This program will store DB login information seperately from the python script in attempt to be somewhat more secure.
 2. MySQL table
 	It's assumed that the table being written to will have the following columns:
 	date - varchar(10),
