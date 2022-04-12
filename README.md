@@ -16,9 +16,12 @@ The design of this dashboard can be broken down into 5 parts:
 	```python
 	schedule.every(15).minutes.at(":00").do(collect_hosts)
 	```
-	* Upon doing so, with each reply it will acquire the hostname and mac address from each reply.
+	* Upon doing so, with each reply collected in collecthosts(), it will acquire the hostname and mac address from each reply's IP Address.
 	* After each field has been acquired, python will treat the data, and then write the host data to a table in mysql.
-	* This program will store DB login information seperately from the python script in attempt to be somewhat more secure ```conn = pymysql.connect(read_default_file="/etc/my.cnf")```. It's assumed this is relatively secure as my server is running a firewall and has been hardened. To even connect to it, all RDP protocols have been encapsulated in SSH.
+	* This program will store DB login information seperately from the python script in attempt to be somewhat more secure than having it present in the script outright. It's assumed that this file is difficult to access as the server is running a relatively strict firewall, and RDP requires a parallel SSH connection, as well as permissions being tweaked on the sever in an attempt to defend against lateral moving attacks, or accessing the /etc/ directory outright.
+	```python
+	conn = pymysql.connect(read_default_file="/etc/my.cnf")
+	```
 2. MySQL table
 	* It's assumed that the table being written to will have the following columns:
 	1. date - varchar(10),
