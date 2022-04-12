@@ -37,7 +37,8 @@ The design of this dashboard can be broken down into 5 parts:
 	SELECT t.* 
 		 FROM (SELECT date, time as 'timestamp', COUNT(*) AS 'number_of_users' 
 		 FROM device_monitor GROUP BY date, timestamp ORDER BY date DESC, time DESC LIMIT 96) AS t
-		 ORDER BY t.date ASC, t.timestamp ASC```
+		 ORDER BY t.date ASC, t.timestamp ASC
+	```
 
 3. index.php
 	* Draws the chart for the user tracking, also hosts our JS scripts that query APIs and output to our 4 different fields. (Ideally, I will change this to a simple html file in the future).
