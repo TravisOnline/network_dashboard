@@ -27,7 +27,7 @@ The design of this dashboard can be broken down into 5 parts:
 	* In retrospect, I should have stored my dates as a proper date timestamp in mysqli to avoid convoluted mysql queries such as: ```SELECT t.* 
 		 FROM (SELECT date, time as 'timestamp', COUNT(*) AS 'number_of_users' 
 		 FROM device_monitor GROUP BY date, timestamp ORDER BY date DESC, time DESC LIMIT 96) AS t
-		 ORDER BY t.date ASC, t.timestamp ASC```
+		 ORDER BY t.date ASC, t.timestamp ASC``` from data.php which simply looks to capture the last 96 entries of devices counted sorted by latest date, and then timestamp.
 
 3. index.php
 	Draws the chart for the user tracking, also hosts our JS scripts that query APIs and output to our 4 different fields
