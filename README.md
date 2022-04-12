@@ -25,7 +25,9 @@ The design of this dashboard can be broken down into 5 parts:
 	5. id - int NOT NULL AUTO_INCREMENT PK
 
 
-	* In retrospect, I should have stored my dates as a proper date timestamp in mysqli to avoid convoluted mysql queries such as: ```SELECT t.* 
+	* In retrospect, I should have stored my dates as a proper date timestamp in mysqli to avoid convoluted mysql queries such as: 
+	```mysqli
+	SELECT t.* 
 		 FROM (SELECT date, time as 'timestamp', COUNT(*) AS 'number_of_users' 
 		 FROM device_monitor GROUP BY date, timestamp ORDER BY date DESC, time DESC LIMIT 96) AS t
 		 ORDER BY t.date ASC, t.timestamp ASC``` from data.php which simply looks to capture the last 96 entries of devices counted sorted by latest date, and then timestamp.
@@ -45,7 +47,7 @@ The design of this dashboard can be broken down into 5 parts:
 
 5. php files
 	* Queries our MYSQL database and encodes the results as json objects
-	* ```php
+	```php
 	$get_active_time = "SELECT @active_time := (SELECT time from device_monitor ORDER BY ID DESC LIMIT 1)";
 	$conn->query($get_active_time);
 	$get_active_month = "SELECT @active_month := (SELECT date from device_monitor ORDER BY ID DESC LIMIT 1)";
@@ -56,7 +58,8 @@ The design of this dashboard can be broken down into 5 parts:
 		$output[] = $row;
 	}
 	
-	print json_encode($output);``` 
+	print json_encode($output);
+	``` 
 	* (taken from active_now.php, which determines which hosts were present in the last scan. This is then encoded as an array of josn objects) 
 
 
