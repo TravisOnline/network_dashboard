@@ -2,7 +2,7 @@
 
 This dashboard was designed and created over a weekend with the intention to log and monitor all devices on my home network. The python script will ping every IP address on my subnet every 15min, feeding this information in 15min gaps to a chart on the dashboard. The dashboard also stores the hosts captured from the last scan, hosts that have been active today, and hosts that have been active this month. 
 
-The specs on the server running it are really horrible, and I didn't want to store sensitive network information externally, so I setup a LAMP stack. This project assumes you have a lamp stack setup, and the correct dependancies installed for Python.
+The specs on the server running it are really horrible, and I didn't want to store sensitive network information externally, so I setup a LAMP stack running on a stripped back Linux Lite installation. This project assumes you have a lamp stack setup and the correct dependancies installed for Python.
 
 I used python 3.8 when programming the network scanner, and as such 'sudo python3.8 networkscan.py' was used to launch the program as it requires elevated privaleges.
 
