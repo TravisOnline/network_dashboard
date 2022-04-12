@@ -39,7 +39,7 @@ The design of this dashboard can be broken down into 5 parts:
 				timestamp.push(payload[i].timestamp);
 				connections.push(payload[i].number_of_users);
 			}``` 
-	**(Taken from app.js which stores information from data.php on timestamps, and user counts before writing to the chart in index.php)
+	** (Taken from app.js which stores information from data.php on timestamps, and user counts before writing to the chart in index.php)
 
 5. php files
 	* Queries our MYSQL database and encodes the results as json objects
