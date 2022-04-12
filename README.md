@@ -38,24 +38,23 @@ The design of this dashboard can be broken down into 5 parts:
 	* ```for(var i = 0; i < payload.length; i++){
 				timestamp.push(payload[i].timestamp);
 				connections.push(payload[i].number_of_users);
-			}``` (Taken from app.js which stores information from data.php on timestamps, and user counts before writing to the chart in index.php)
+			}``` 
+	**(Taken from app.js which stores information from data.php on timestamps, and user counts before writing to the chart in index.php)
 
 5. php files
 	* Queries our MYSQL database and encodes the results as json objects
 	* ```$get_active_time = "SELECT @active_time := (SELECT time from device_monitor ORDER BY ID DESC LIMIT 1)";
 	$conn->query($get_active_time);
-
 	$get_active_month = "SELECT @active_month := (SELECT date from device_monitor ORDER BY ID DESC LIMIT 1)";
 	$conn->query($get_active_month);
-
 	$sql2 = "SELECT * FROM device_monitor where time = @active_time and date = @active_month";
-	
 	if($result2->num_rows > 0){
 		foreach($result2 as $row){
 		$output[] = $row;
 	}
 	
-	print json_encode($output);``` (taken from active_now.php, which determines which hosts were present in the last scan. This is then encoded as an array of josn objects) 
+	print json_encode($output);``` 
+	* (taken from active_now.php, which determines which hosts were present in the last scan. This is then encoded as an array of josn objects) 
 
 
 ## KNOWN ISSUES:
