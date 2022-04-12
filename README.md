@@ -62,6 +62,6 @@ The design of this dashboard can be broken down into 5 parts:
 
 ## KNOWN ISSUES:
 	- The dashboard is unavailable for remote hosts - i need to implement access to it without enabling XSS attacks
-	- Pythonscript hugely susceptible for SQL injection attacks
+	- The networkscan python script hugely susceptible to SQL injection attacks. Needs more data treatment before writing to the SQL table, and error logging.
 	- No JSON auth for APIs
 	- Inefficient and dangerous DB login measures in the php files
