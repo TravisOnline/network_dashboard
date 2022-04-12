@@ -14,17 +14,20 @@ The design of this dashboard can be broken down into 5 parts:
 1. networkscan.py
 	* This python program will send out a broadcast to every device on the specified network every x minutes via the scheduler method.
 	* Upon doing so, with each reply it will acquire the hostname and mac address from each reply.
-	* After teach field has been acquired, python will write the host data to a table in mysql.
-	*This program will store DB login information seperately from the python script in attempt to be somewhat more secure.
+	* After each field has been acquired, python will write the host data to a table in mysql.
+	* This program will store DB login information seperately from the python script in attempt to be somewhat more secure.
 2. MySQL table
-	It's assumed that the table being written to will have the following columns:
-	date - varchar(10),
-	time - varchar(8),
-	ip_address - varchar(15),
-	device_name - varchar(50),
-	id - int NOT NULL AUTO_INCREMENT PK
+	* It's assumed that the table being written to will have the following columns:
+	1. date - varchar(10),
+	2. time - varchar(8),
+	3. ip_address - varchar(15),
+	4. device_name - varchar(50),
+	5. id - int NOT NULL AUTO_INCREMENT PK
 
-I'm sure it's a bit strange that i decided to store timestamps and dates this way, though it made more sense for me personally when running MySQL queries from my APIs.
+	* In retrospect, I should have stored my dates as a proper date timestamp in mysqli to avoid convoluted mysql queries such as: ```SELECT t.* 
+		 FROM (SELECT date, time as 'timestamp', COUNT(*) AS 'number_of_users' 
+		 FROM device_monitor GROUP BY date, timestamp ORDER BY date DESC, time DESC LIMIT 96) AS t
+		 ORDER BY t.date ASC, t.timestamp ASC```
 
 3. index.php
 	Draws the chart for the user tracking, also hosts our JS scripts that query APIs and output to our 4 different fields
