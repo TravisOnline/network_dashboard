@@ -12,7 +12,8 @@ I used python 3.8 when programming the network scanner, and as such 'sudo python
 The design of this dashboard can be broken down into 5 parts:
 
 1. networkscan.py
-	* This python program will send out a broadcast to every device on the specified network every x minutes via the scheduler method ```python
+	* This python program will send out a broadcast to every device on the specified network every x minutes via the scheduler method 
+	```python
 	schedule.every(15).minutes.at(":00").do(collect_hosts)
 	```
 	* Upon doing so, with each reply it will acquire the hostname and mac address from each reply.
