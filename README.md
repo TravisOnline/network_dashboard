@@ -46,6 +46,10 @@ The design of this dashboard can be broken down into 5 parts:
 4. js files
 	* Query JSON objects provided by our php APIs. In this snippet, app.js stores information from data.php (timestamps and user counts) before feeding the information to the chart on the dashboard.
 	```javascript
+	var payload = JSON.parse(data);
+	var timestamp = [];
+	var connections = [];
+
 	for(var i = 0; i < payload.length; i++){
 		timestamp.push(payload[i].timestamp);
 		connections.push(payload[i].number_of_users);
