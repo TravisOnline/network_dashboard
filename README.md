@@ -12,6 +12,7 @@ I used python 3.8 when programming the network scanner, and as such 'sudo python
 The design of this dashboard can be broken down into 5 parts:
 
 1. networkscan.py
+	* Uses a combination of scapy and socket to collect host information and write to the MySQL database.
 	* This python program will send out a broadcast to every device on the specified network every x minutes via the scheduler method 
 	```python
 	schedule.every(15).minutes.at(":00").do(collect_hosts)
