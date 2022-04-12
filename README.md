@@ -55,11 +55,11 @@ The design of this dashboard can be broken down into 5 parts:
 5. php files
 	* Queries our MYSQL database and encodes the results as json objects. This snippet is from active_now.php, which determines which hostnames and their associated IP addresses were present in the last scan. This is then encoded as an array of JSON objects to be digested by the active_now.js file.
 	```php
-	$get_active_time = "SELECT @active_time := (SELECT time from device_monitor ORDER BY ID DESC LIMIT 1)";
+	$get_active_time = "SELECT @active_time := (SELECT time FROM device_monitor ORDER BY ID DESC LIMIT 1)";
 	$conn->query($get_active_time);
-	$get_active_month = "SELECT @active_month := (SELECT date from device_monitor ORDER BY ID DESC LIMIT 1)";
+	$get_active_month = "SELECT @active_month := (SELECT date FROM device_monitor ORDER BY ID DESC LIMIT 1)";
 	$conn->query($get_active_month);
-	$sql2 = "SELECT * FROM device_monitor where time = @active_time and date = @active_month";
+	$sql2 = "SELECT * FROM device_monitor WHERE time = @active_time AND date = @active_month";
 	if($result2->num_rows > 0){
 		foreach($result2 as $row){
 		$output[] = $row;
