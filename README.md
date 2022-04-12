@@ -35,7 +35,7 @@ The design of this dashboard can be broken down into 5 parts:
 
 4. js files
 	* Query JSON objects provided by our php APIs
-	* ```javascript
+	```javascript
 	for(var i = 0; i < payload.length; i++){
 		timestamp.push(payload[i].timestamp);
 		connections.push(payload[i].number_of_users);
